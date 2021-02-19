@@ -1,4 +1,4 @@
-module.exports = class Calculadoras {
+module.exports = class Sumadoras {
     protected a : number
     protected b: number
     protected c: string
@@ -7,7 +7,7 @@ module.exports = class Calculadoras {
         this.b = 0
         this.c = "suma"
     }
-    public calculadora = (a: number, b: number, c : string) => {
+    public Sumadora = (a: number, b: number, c : string) => {
         this.a=a
         this.b=b
         this.c=c

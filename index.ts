@@ -3,10 +3,10 @@
 const operacion = (numero1 : number, numero2 : number, opera: string) =>{
  return new Promise ((resolve) =>{
      if(opera =="suma"){
-        import('operacion')
-        .then(Calculadoras =>{
-            const calcu = new Calculadoras()
-             resolve(calcu.calculadora(numero1,numero2,opera))
+        import('sumadoras')
+        .then(Sumadoras =>{
+            const sumadora = new Sumadoras()
+             resolve(sumadora.sumadora(numero1,numero2,opera))
         })
         
      }
