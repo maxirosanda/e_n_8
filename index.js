@@ -54,16 +54,32 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
         if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
     }
 };
-var operacion = function (numero1, numero2, opera) {
-    return new Promise(function (resolve) {
-        if (opera == "suma") {
-            Promise.resolve().then(function () { return __importStar(require('sumadoras')); }).then(function (Sumadoras) {
-                var sumadora = new Sumadoras();
-                resolve(sumadora.sumadora(numero1, numero2, opera));
-            });
+var operacion = function (numero1, numero2, opera) { return __awaiter(void 0, void 0, void 0, function () {
+    var Sumadoras, sumadora, resultado, Restadora, restadora, resultado;
+    return __generator(this, function (_a) {
+        switch (_a.label) {
+            case 0:
+                if (!(opera == "suma")) return [3 /*break*/, 2];
+                return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require('./Calculadora')); })];
+            case 1:
+                Sumadoras = (_a.sent()).Sumadoras;
+                sumadora = new Sumadoras();
+                resultado = sumadora.operacion(numero1, numero2);
+                _a.label = 2;
+            case 2:
+                if (!(opera == "resta")) return [3 /*break*/, 4];
+                return [4 /*yield*/, Promise.resolve().then(function () { return __importStar(require('./Calculadora')); })];
+            case 3:
+                Restadora = (_a.sent()).Restadora;
+                restadora = new Restadora();
+                resultado = restadora.operacion(numero1, numero2);
+                _a.label = 4;
+            case 4: return [2 /*return*/, new Promise(function (resolve) {
+                    resolve(resultado);
+                })];
         }
     });
-};
+}); };
 var operaciones = function (numero1, numero2, opera) {
     return __awaiter(this, void 0, void 0, function () {
         var a;
@@ -80,3 +96,23 @@ var operaciones = function (numero1, numero2, opera) {
 operaciones(10, 5, "resta").then(function (v) {
     console.log(v);
 });
+/*
+const operacion = async (numero1 : number, numero2 : number, opera: string): Promise<number> =>{
+        let resultado: number
+                const {Sumadoras} = await import('./Sumadoras')
+                const sumadora = new Sumadoras()
+                resultado = sumadora.Sumadora(numero1, numero2)
+                return new Promise(resolve => {
+                    resolve(resultado)
+                })
+    }
+
+
+    const operaciones = async function (numero1 : number, numero2 : number, opera: string) {
+        let a = await operacion(numero1,numero2,opera)
+        return a
+    }
+    operaciones(10,9,"suma").then((v)=>{
+    console.log(v)
+    })
+  */ 
